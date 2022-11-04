@@ -1,3 +1,3 @@
 #include <string>
 
-const std::string get_message(unsigned short i);
+const std::string getMessage(unsigned short i);

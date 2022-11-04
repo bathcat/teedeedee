@@ -3,9 +3,9 @@
 #include <stdexcept>
 using namespace std;
 
-const string get_message(unsigned short i){
+const string getMessage(unsigned short i){
     if(i>100){
-        throw invalid_argument( "received negative value" );
+        throw std::invalid_argument( "received negative value" );
     }
     const auto multiple_of_3 = i%3==0;
     const auto multiple_of_5 = i%5==0;

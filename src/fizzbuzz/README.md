@@ -36,8 +36,17 @@ Notes:
 
 
 
+## Spells
 
+### To test:
+```shell
+bazelisk test --test_output=all //src/fizzbuzz/complete:test
+```
 
+### To run: 
+```shell
+bazelisk run //src/fizzbuzz/complete:main
+```
 
 
 

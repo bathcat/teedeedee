@@ -1,5 +1,6 @@
 #include <iostream>
 #include "fizz_buzz.h"
+using namespace std;
 
 
 const std::string usage = R"(
@@ -27,7 +28,7 @@ int main(const int argc, const char**argv) {
     }
 
     for(int i=1;i<101;i++){
-        std::cout << get_message(i) << std::endl;
+        std::cout << getMessage(i) << std::endl;
     }
     return 0;
 }
