@@ -16,7 +16,8 @@
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"devondcarew.bazel-code"
+				"devondcarew.bazel-code",
+				"ms-vscode.cpptools-themes"
 			]
 		}
 	},
