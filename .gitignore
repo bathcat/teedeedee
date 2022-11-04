@@ -1,3 +1,6 @@
+# Bazel stuff
+/bazel-*
+
 # Prerequisites
 *.d
 
