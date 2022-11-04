@@ -26,7 +26,7 @@ namespace
         EXPECT_CALL(turtle, PenDown())                  // #3
          .Times(AtLeast(1));
 
-        Canvas canvas(&turtle);
+        Canvas canvas(turtle);
         canvas.DrawRectangle(0,0,0,0);
 
         EXPECT_EQ("1", "1");
