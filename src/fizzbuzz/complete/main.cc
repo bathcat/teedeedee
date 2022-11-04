@@ -1,5 +1,5 @@
 #include <iostream>
-#include "fizz_buzz.cc"
+#include "fizz_buzz.h"
 
 
 const std::string usage = R"(
