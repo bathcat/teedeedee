@@ -17,9 +17,10 @@ namespace canvas
       {
          turtle.PenUp();
          turtle.GoTo(x, y);
+         turtle.TurnTo(0);
          turtle.PenDown();
 
-         turtle.PointTo(90);
+         turtle.Turn(90);
          turtle.Forward(w);
 
          turtle.Turn(90);
