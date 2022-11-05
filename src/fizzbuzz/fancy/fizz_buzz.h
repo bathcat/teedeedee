@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 namespace fizzbuzz
 {
@@ -51,28 +52,32 @@ namespace fizzbuzz
     * Write the correct output--described above-- to the console.
     )";
 
-    std::string getMessages()
+    std::vector<std::string> getMessages()
     {
-        std::string messages = "";
-        for (int i = 1; i < 101; i++)
+        std::vector<std::string> messages;
+        for (int i = 0; i < 100; i++)
         {
-            messages += getMessage(i);
-            messages += "\n";
+            messages.push_back(getMessage(i + 1));
         }
         return messages;
     }
 
-    int main(const int argc, std::ostream &stream)
+    std::string getOutput(const int argc)
     {
+        std::string result = "";
         if (argc > 1)
         {
-            stream << usage << std::endl;
-            return 0;
+            result = usage;
+        }
+        else
+        {
+            for (auto message : getMessages())
+            {
+                result += message + "\n";
+            }
         }
 
-        stream << getMessages() << std::endl;
-
-        return 0;
+        return result;
     }
 
 }

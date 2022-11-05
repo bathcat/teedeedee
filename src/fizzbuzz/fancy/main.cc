@@ -6,5 +6,6 @@ using namespace std;
 
 
 int main(const int argc, const char**argv) {
-    return fizzbuzz::main(argc,std::cout);
+    std::cout << fizzbuzz::getOutput(argc) << std::endl;
+    return 0;
 }
