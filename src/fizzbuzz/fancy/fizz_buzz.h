@@ -4,30 +4,35 @@
 #include <string>
 #include <iostream>
 
-namespace fizzbuzz{
+namespace fizzbuzz
+{
 
-    const std::string getMessage(unsigned short i){
-        if(i>100){
-            throw std::invalid_argument( "received negative value" );
+    const std::string getMessage(unsigned short i)
+    {
+        if (i > 100)
+        {
+            throw std::invalid_argument("received negative value");
         }
-        const auto multiple_of_3 = i%3==0;
-        const auto multiple_of_5 = i%5==0;
+        const auto multiple_of_3 = i % 3 == 0;
+        const auto multiple_of_5 = i % 5 == 0;
 
-        if(multiple_of_3 && multiple_of_5){
+        if (multiple_of_3 && multiple_of_5)
+        {
             return "FizzBuzz";
         }
 
-        if(multiple_of_3){
+        if (multiple_of_3)
+        {
             return "Fizz";
         }
 
-        if(multiple_of_5){
+        if (multiple_of_5)
+        {
             return "Buzz";
         }
 
         return std::to_string(i);
     }
-
 
     const std::string usage = R"(
     Fizz Buzz
@@ -46,24 +51,30 @@ namespace fizzbuzz{
     * Write the correct output--described above-- to the console.
     )";
 
-    
+    std::string getMessages()
+    {
+        std::string messages = "";
+        for (int i = 1; i < 101; i++)
+        {
+            messages += getMessage(i);
+            messages += "\n";
+        }
+        return messages;
+    }
 
-
-    int main(const int argc, const char**argv, std::ostream& stream) {
-        if(argc > 1){
+    int main(const int argc, std::ostream &stream)
+    {
+        if (argc > 1)
+        {
             stream << usage << std::endl;
             return 0;
         }
 
-        for(int i=1;i<101;i++){
-            stream << getMessage(i) << std::endl;
-        }
+        stream << getMessages() << std::endl;
+
         return 0;
     }
 
-
 }
-
-
 
 #endif
