@@ -52,7 +52,7 @@ namespace fizzbuzz
     * Write the correct output--described above-- to the console.
     )";
 
-    std::vector<std::string> getMessages()
+    std::vector<std::string> getAllMessages()
     {
         std::vector<std::string> messages;
         for (int i = 0; i < 100; i++)
@@ -71,7 +71,7 @@ namespace fizzbuzz
         }
         else
         {
-            for (auto message : getMessages())
+            for (auto message : getAllMessages())
             {
                 result += message + "\n";
             }
