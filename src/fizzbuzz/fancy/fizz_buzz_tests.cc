@@ -4,6 +4,7 @@
 #include <tuple>
 
 using ::testing::Values;
+using namespace fizzbuzz;
 
 namespace {
 
