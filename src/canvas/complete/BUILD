@@ -1,8 +1,8 @@
 cc_test(
   name = "test",
   srcs = [
-      "canvas_tests.cc",
-      "canvas.h",
+      "drawingcontext_tests.cc",
+      "drawingcontext.h",
       "turtle.h"
   ],
   deps = ["@com_google_googletest//:gtest_main"],
