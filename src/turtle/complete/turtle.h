@@ -12,6 +12,7 @@ public:
    virtual void GoTo(int x, int y) = 0;
    virtual int GetX() const = 0;
    virtual int GetY() const = 0;
+   virtual void PointTo(int degrees) = 0;
 };
 
 #endif

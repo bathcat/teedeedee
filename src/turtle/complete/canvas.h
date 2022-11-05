@@ -8,16 +8,29 @@
 class Canvas
 {
 public:
-   Canvas(Turtle& turtle) : turtle(turtle) {}
+   Canvas(Turtle &turtle) : turtle(turtle) {}
 
-   void DrawRectangle(unsigned int x, unsigned int y, unsigned int w, unsigned int h)
+   void DrawRectangle(int x, int y, unsigned int w, unsigned int h)
    {
+      turtle.PenUp();
+      turtle.GoTo(x, y);
       turtle.PenDown();
-      std::cout << std::endl << "drawing............" << std::endl << std::endl;
+
+      turtle.PointTo(90);
+      turtle.Forward(w);
+
+      turtle.Turn(90);
+      turtle.Forward(h);
+
+      turtle.Turn(90);
+      turtle.Forward(w);
+
+      turtle.Turn(90);
+      turtle.Forward(h);
    }
 
 private:
-   Turtle& turtle;
+   Turtle &turtle;
 };
 
 #endif

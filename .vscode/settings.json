@@ -62,5 +62,7 @@
       "streambuf": "cpp",
       "typeinfo": "cpp",
       "variant": "cpp"
-   }
+   },
+   "files.autoSave": "afterDelay",
+   "editor.formatOnSave": true
 }
