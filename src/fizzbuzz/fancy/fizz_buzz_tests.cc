@@ -24,28 +24,17 @@ namespace
         EXPECT_EQ(actual, expected);
     }
 
-    auto Fizz(unsigned short n)
-    {
-        return std::make_tuple(n, "Fizz");
-    }
-
-    auto Buzz(unsigned short n)
-    {
-        return std::make_tuple(n, "Buzz");
-    }
-
-    auto FizzBuzz(unsigned short n)
-    {
-        return std::make_tuple(n, "FizzBuzz");
-    }
+    auto fizz = [](unsigned short n) {return std::make_tuple(n, "Fizz");};
+    auto buzz=[](unsigned short n){return std::make_tuple(n, "Buzz");};
+    auto fizzBuzz=[](unsigned short n){return std::make_tuple(n, "FizzBuzz");};
 
     INSTANTIATE_TEST_SUITE_P(
         ShouldMatchRules,
         GetMessageResultTest,
         Values(
-            Fizz(3), Fizz(6), Fizz(9),
-            Buzz(5), Buzz(10), Buzz(20),
-            FizzBuzz(15), FizzBuzz(30), FizzBuzz(45)));
+            fizz(3), fizz(6), fizz(9),
+            buzz(5), buzz(10), buzz(20),
+            fizzBuzz(15), fizzBuzz(30), fizzBuzz(45)));
 
     TEST(GetMessageTests, ShouldThrowOn101)
     {
