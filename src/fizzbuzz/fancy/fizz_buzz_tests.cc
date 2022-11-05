@@ -24,17 +24,17 @@ namespace
         EXPECT_EQ(actual, expected);
     }
 
-    std::tuple<unsigned short, std::string> Fizz(unsigned short n)
+    auto Fizz(unsigned short n)
     {
         return std::make_tuple(n, "Fizz");
     }
 
-    std::tuple<unsigned short, std::string> Buzz(unsigned short n)
+    auto Buzz(unsigned short n)
     {
         return std::make_tuple(n, "Buzz");
     }
 
-    std::tuple<unsigned short, std::string> FizzBuzz(unsigned short n)
+    auto FizzBuzz(unsigned short n)
     {
         return std::make_tuple(n, "FizzBuzz");
     }

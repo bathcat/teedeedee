@@ -4,8 +4,13 @@ cc_test(
     "fizz_buzz_tests.cc",
     "fizz_buzz.h",
   ],
+  copts = [
+      "-std=c++20",
+  ],
   deps = ["@com_google_googletest//:gtest_main"],
 )
+
+
 
 
 cc_binary(
