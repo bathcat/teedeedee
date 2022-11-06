@@ -2,10 +2,7 @@
 #define SOUNDEX_H_
 
 #include <string>
-#include <ranges>
-#include <string_view>
-//#include <range/v3/action/unique.hpp>
-//#include <range/v3/view/all.hpp>
+
 #include <range/v3/view/transform.hpp>
 #include <range/v3/view/take.hpp>
 #include <range/v3/view/drop.hpp>
@@ -13,18 +10,11 @@
 #include <range/v3/view/concat.hpp>
 #include <range/v3/view/filter.hpp>
 #include <range/v3/view/unique.hpp>
+#include <range/v3/range/conversion.hpp>
 
 namespace soundex
 {
-   // using std::ranges::unique;
-   //  using std::views::drop;
-   //  using std::views::filter;
-   //  using std::views::join;
-   //  using std::views::single;
-   //  using std::views::take;
-   // using std::views::transform;
-   //  using std::views::repeat;
-   //  using ranges::actions::unique;
+   using ranges::to;
    using ranges::views::concat;
    using ranges::views::drop;
    using ranges::views::filter;
@@ -111,18 +101,8 @@ namespace soundex
 
    string encode(string original)
    {
-      auto sequence = concat(
-                          getPrefix(original),
-                          getBody(original),
-                          getPadding()) |
-                      take(4);
-
-      string result;
-      std::ranges::copy(
-          sequence,
-          std::back_inserter(result));
-
-      return result;
+      return concat(getPrefix(original), getBody(original), getPadding()) |
+             take(4) | to<std::string>();
    }
 
 }
