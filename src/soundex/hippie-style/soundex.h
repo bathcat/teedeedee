@@ -3,6 +3,7 @@
 
 #include <string>
 
+//TODO: Use the CPP2023 implementations when we upgrade.
 #include <range/v3/view/transform.hpp>
 #include <range/v3/view/take.hpp>
 #include <range/v3/view/drop.hpp>
@@ -25,82 +26,86 @@ namespace soundex
 
    using std::string;
 
-   bool isSkippable(char c)
+   namespace internal
    {
-      return c == 'Y' || c == 'H' || c == 'W';
-   }
 
-   bool isNonSkippable(char c)
-   {
-      return !isSkippable(c);
-   }
-
-   bool isVowel(char c)
-   {
-      return c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
-   }
-
-   bool isNonVowel(char c)
-   {
-      return !isVowel(c);
-   }
-
-   char toEncoding(char c)
-   {
-      if (c == 'B' || c == 'F' || c == 'P' || c == 'V')
+      bool isSkippable(char c)
       {
-         return '1';
+         return c == 'Y' || c == 'H' || c == 'W';
+      }
+      bool isNonSkippable(char c)
+      {
+         return !isSkippable(c);
       }
 
-      if (c == 'C' || c == 'G' || c == 'J' || c == 'K' || c == 'Q' || c == 'S' || c == 'X' || c == 'Z')
+      bool isVowel(char c)
       {
-         return '2';
+         return c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
       }
 
-      if (c == 'D' || c == 'T')
+      bool isNonVowel(char c)
       {
-         return '3';
+         return !isVowel(c);
       }
 
-      if (c == 'L')
+      char toEncoding(char c)
       {
-         return '4';
+         if (c == 'B' || c == 'F' || c == 'P' || c == 'V')
+         {
+            return '1';
+         }
+
+         if (c == 'C' || c == 'G' || c == 'J' || c == 'K' || c == 'Q' || c == 'S' || c == 'X' || c == 'Z')
+         {
+            return '2';
+         }
+
+         if (c == 'D' || c == 'T')
+         {
+            return '3';
+         }
+
+         if (c == 'L')
+         {
+            return '4';
+         }
+
+         if (c == 'M' || c == 'N')
+         {
+            return '5';
+         }
+
+         if (c == 'R')
+         {
+            return '6';
+         }
+         return c;
       }
 
-      if (c == 'M' || c == 'N')
+      char toUpper(char c)
       {
-         return '5';
+         return std::toupper(c);
       }
 
-      if (c == 'R')
+      auto getPrefix(const string& string original)
       {
-         return '6';
+         return original | transform(toUpper) | take(1);
       }
-      return c;
+
+      auto getBody(const string& string original)
+      {
+         return original | transform(toUpper) | filter(isNonSkippable) | transform(toEncoding) | unique | drop(1) | filter(isNonVowel);
+      }
+
+      auto getPadding()
+      {
+         return repeat('0');
+      }
    }
 
-   char toUpper(char c)
+   string encode(const string& original)
    {
-      return std::toupper(c);
-   }
-
-   auto getPrefix(string original)
-   {
-      return original | transform(toUpper) | take(1);
-   }
-
-   auto getBody(string original)
-   {
-      return original | transform(toUpper) | filter(isNonSkippable) | transform(toEncoding) | unique | drop(1) | filter(isNonVowel);
-   }
-
-   auto getPadding()
-   {
-      return repeat('0');
-   }
-
-   string encode(string original)
-   {
+      using namespace internal;
       return concat(getPrefix(original), getBody(original), getPadding()) |
              take(4) | to<std::string>();
    }
