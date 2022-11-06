@@ -16,7 +16,7 @@ namespace
         EXPECT_EQ("A000", soundex::encode("A"));
         EXPECT_EQ("T522", soundex::encode("Tymczak"));
         EXPECT_EQ("H555", soundex::encode("Honeyman"));
-        //EXPECT_EQ("P236", soundex::encode("Pfister"));
+        EXPECT_EQ("P236", soundex::encode("Pfister"));
     }
 
 }

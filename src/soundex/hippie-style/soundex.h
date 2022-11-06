@@ -27,10 +27,10 @@ namespace soundex
    //  using ranges::actions::unique;
    using ranges::views::concat;
    using ranges::views::drop;
+   using ranges::views::filter;
    using ranges::views::repeat;
    using ranges::views::take;
    using ranges::views::transform;
-   using ranges::views::filter;
    using ranges::views::unique;
 
    using std::string;
@@ -101,12 +101,7 @@ namespace soundex
 
    auto getBody(string original)
    {
-      return original | transform(toUpper)
-                      | drop(1)
-                      | filter(isNonSkippable)
-                      | transform(toEncoding)
-                      | unique
-                      | filter(isNonVowel);
+      return original | transform(toUpper) | filter(isNonSkippable) | transform(toEncoding) | unique | drop(1) | filter(isNonVowel);
    }
 
    auto getPadding()
@@ -117,11 +112,11 @@ namespace soundex
    string encode(string original)
    {
       auto sequence = concat(
-              getPrefix(original),
-              getBody(original),
-              getPadding()
-           ) | take(4);
-      
+                          getPrefix(original),
+                          getBody(original),
+                          getPadding()) |
+                      take(4);
+
       string result;
       std::ranges::copy(
           sequence,
