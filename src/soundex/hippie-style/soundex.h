@@ -2,20 +2,36 @@
 #define SOUNDEX_H_
 
 #include <string>
-#include <coroutine>
 #include <ranges>
 #include <string_view>
+//#include <range/v3/action/unique.hpp>
+//#include <range/v3/view/all.hpp>
+#include <range/v3/view/transform.hpp>
+#include <range/v3/view/take.hpp>
+#include <range/v3/view/drop.hpp>
+#include <range/v3/view/repeat.hpp>
+#include <range/v3/view/concat.hpp>
+#include <range/v3/view/filter.hpp>
+#include <range/v3/view/unique.hpp>
 
 namespace soundex
 {
-   using std::ranges::unique;
-   using std::views::drop;
-   using std::views::filter;
-   using std::views::join;
-   using std::views::single;
-   using std::views::take;
-   using std::views::transform;
-   //using std::views::repeat;
+   // using std::ranges::unique;
+   //  using std::views::drop;
+   //  using std::views::filter;
+   //  using std::views::join;
+   //  using std::views::single;
+   //  using std::views::take;
+   // using std::views::transform;
+   //  using std::views::repeat;
+   //  using ranges::actions::unique;
+   using ranges::views::concat;
+   using ranges::views::drop;
+   using ranges::views::repeat;
+   using ranges::views::take;
+   using ranges::views::transform;
+   using ranges::views::filter;
+   using ranges::views::unique;
 
    using std::string;
 
@@ -85,23 +101,31 @@ namespace soundex
 
    auto getBody(string original)
    {
-      const auto intermediate = original | transform(toUpper) | drop(1) | filter(isNonSkippable) | transform(toEncoding);
-      //TODO: Hook up unique here
-      return  filter(isNonVowel);
+      return original | transform(toUpper)
+                      | drop(1)
+                      | filter(isNonSkippable)
+                      | transform(toEncoding)
+                      | unique
+                      | filter(isNonVowel);
    }
 
-   // auto getPadding()
-   // {
-   //    return repeat("0");
-   // }
+   auto getPadding()
+   {
+      return repeat('0');
+   }
 
    string encode(string original)
    {
-
+      auto sequence = concat(
+              getPrefix(original),
+              getBody(original),
+              getPadding()
+           ) | take(4);
+      
       string result;
-      // std::ranges::copy(
-      //     std::ranges::join_view(segments) | take(4),
-      //     std::back_inserter(result));
+      std::ranges::copy(
+          sequence,
+          std::back_inserter(result));
 
       return result;
    }

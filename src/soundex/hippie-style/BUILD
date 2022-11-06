@@ -5,10 +5,12 @@ cc_test(
       "soundex.h",
   ],  
   copts = [
-      "-std=c++20",
-      "-fcoroutines"
+      "-std=c++20"
   ],
-  deps = ["@com_google_googletest//:gtest_main"],
+  deps = [
+    "@com_google_googletest//:gtest_main",
+    "@range_v3//:range-v3"
+  ],
 )
 
 
