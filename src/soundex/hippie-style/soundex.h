@@ -87,12 +87,12 @@ namespace soundex
          return std::toupper(c);
       }
 
-      auto getPrefix(const string& string original)
+      auto getPrefix(const string& original)
       {
          return original | transform(toUpper) | take(1);
       }
 
-      auto getBody(const string& string original)
+      auto getBody(const string& original)
       {
          return original | transform(toUpper) | filter(isNonSkippable) | transform(toEncoding) | unique | drop(1) | filter(isNonVowel);
       }
