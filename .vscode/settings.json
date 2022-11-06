@@ -65,5 +65,6 @@
       "coroutine": "cpp"
    },
    "files.autoSave": "afterDelay",
-   "editor.formatOnSave": true
+   "editor.formatOnSave": true,
+   "C_Cpp.codeAnalysis.clangTidy.enabled": true
 }
