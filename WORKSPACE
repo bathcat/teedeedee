@@ -13,3 +13,12 @@ http_archive(
   strip_prefix = "range-v3-0.12.0",
   sha256 = "cbcb96beda464e71d293c07dec89ef5c0790ca83d37b0e199890893019441044"
 )
+
+# TODO: There's no WORKSPACE in here, so...
+http_archive(
+  name = "cpp_httplib",
+  urls = ["https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.11.2.zip"],
+  strip_prefix = "cpp-httplib-0.11.2",
+)
+
+
