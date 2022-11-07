@@ -2,6 +2,8 @@
 #define FORTUNE_H_
 
 
+#include "httplib.h"
+
 namespace fortune
 {
 

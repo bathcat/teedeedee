@@ -6,6 +6,6 @@ cc_test(
   ],
   deps = [
     "@com_google_googletest//:gtest_main",
-    "@cpp_httplib"
+    "@cpp_httplib//:cpp-httplib"
   ],
 )

@@ -19,6 +19,8 @@ http_archive(
   name = "cpp_httplib",
   urls = ["https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.11.2.zip"],
   strip_prefix = "cpp-httplib-0.11.2",
+  build_file_content='cc_library(name = "cpp-httplib",srcs = ["httplib.h"],visibility = ["//visibility:public"])',
+  sha256 = "afa64d0fbf3912943ed127b4f654d9c977eff7ecf13240341aca879b2e3f981d"
 )
 
 
