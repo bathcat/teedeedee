@@ -2,6 +2,7 @@
 #include "fortune.h"
 
 #include "httplib.h"
+#include "nlohmann/json.hpp"
 
 const std::string usage = R"(
 Fortune

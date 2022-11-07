@@ -17,6 +17,7 @@ cc_binary(
     "fortune.h",
   ],
   deps = [
-    "@cpp_httplib//:cpp-httplib"
+    "@cpp_httplib//:cpp-httplib",
+    "@nlohmann_json//:nlohmann-json",
   ],
 )

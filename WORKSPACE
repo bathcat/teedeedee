@@ -14,7 +14,6 @@ http_archive(
   sha256 = "cbcb96beda464e71d293c07dec89ef5c0790ca83d37b0e199890893019441044"
 )
 
-# TODO: There's no WORKSPACE in here, so...
 http_archive(
   name = "cpp_httplib",
   urls = ["https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.11.2.zip"],
@@ -23,4 +22,10 @@ http_archive(
   sha256 = "afa64d0fbf3912943ed127b4f654d9c977eff7ecf13240341aca879b2e3f981d"
 )
 
-
+http_archive(
+  name='nlohmann_json',
+  urls=['https://github.com/nlohmann/json/releases/download/v3.11.2/include.zip'],
+  strip_prefix = "single_include",
+  build_file_content='cc_library(name = "nlohmann-json",srcs = ["nlohmann/json.hpp"],visibility = ["//visibility:public"])',
+  sha256 = "e5c7a9f49a16814be27e4ed0ee900ecd0092bfb7dbfca65b5a421b774dccaaed",
+)
