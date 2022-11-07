@@ -9,3 +9,14 @@ cc_test(
     "@cpp_httplib//:cpp-httplib"
   ],
 )
+
+cc_binary(
+  name = "main",
+  srcs = [
+    "main.cc",
+    "fortune.h",
+  ],
+  deps = [
+    "@cpp_httplib//:cpp-httplib"
+  ],
+)

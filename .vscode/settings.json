@@ -62,7 +62,13 @@
       "streambuf": "cpp",
       "typeinfo": "cpp",
       "variant": "cpp",
-      "coroutine": "cpp"
+      "coroutine": "cpp",
+      "condition_variable": "cpp",
+      "csignal": "cpp",
+      "mutex": "cpp",
+      "stop_token": "cpp",
+      "thread": "cpp",
+      "future": "cpp"
    },
    "files.autoSave": "afterDelay",
    "editor.formatOnSave": true,
