@@ -1,6 +1,6 @@
 * text eol=lf
 *.h text
-*.md text
+*.md text eol=lf
 *.cc text
 WORKSPACE text
 BUILD text
