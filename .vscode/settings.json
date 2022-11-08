@@ -68,7 +68,9 @@
       "mutex": "cpp",
       "stop_token": "cpp",
       "thread": "cpp",
-      "future": "cpp"
+      "future": "cpp",
+      "codecvt": "cpp",
+      "valarray": "cpp"
    },
    "files.autoSave": "afterDelay",
    "editor.formatOnSave": true,

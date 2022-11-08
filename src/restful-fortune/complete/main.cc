@@ -1,7 +1,7 @@
 #include <iostream>
 #include "fortune.h"
 
-#include "httplib.h"
+#include "http_client.h"
 #include "nlohmann/json.hpp"
 
 const std::string usage = R"(
@@ -19,9 +19,9 @@ int main(const int argc, const char**argv) {
 
     httplib::Client cli("http://api.kanye.rest");
     const auto res = cli.Get("/");    
+    const auto jsn = nlohmann::json::parse(res.value().body);
 
-
-    std::cout << "Body:" << res.value().body << std::endl;
+    std::cout << "Body:" << jsn["quote"] << std::endl;
     
     return 0;
 }

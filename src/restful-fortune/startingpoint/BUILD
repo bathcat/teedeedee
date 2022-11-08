@@ -15,7 +15,6 @@ cc_binary(
   srcs = [
     "main.cc",
     "fortune.h",
-    "http_client.h",
   ],
   deps = [
     "@cpp_httplib//:cpp-httplib",
