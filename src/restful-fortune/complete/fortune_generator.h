@@ -9,19 +9,20 @@ namespace fortune
    class FortuneGenerator
    {
    private:
-      HttpClient &client;
+      HttpClient& httpClient;
 
    public:
-      FortuneGenerator(HttpClient &client)
+      FortuneGenerator(HttpClient& client)
+         :httpClient(client)
       {
-         client = client;
+
       }
 
       std::string getFortune()
       {
-         return "You will meet a short, pale stranger."
+         return "You will meet a short, pale stranger.";
       }
-   }
+   };
 
 }
 
