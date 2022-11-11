@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "gmock/gmock.h"
-#include "drawingcontext.h"
+#include "drawing_context.h"
 
 using ::testing::AtLeast;
 using namespace canvas;

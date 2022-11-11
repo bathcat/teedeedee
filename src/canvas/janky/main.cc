@@ -1,7 +1,6 @@
 #include <iostream>
-#include "drawingcontext.h"
+#include "drawing_context.h"
 #include "third_party_library_turtle.h"
-
 
 const std::string usage = R"(
 Canvas
@@ -10,9 +9,10 @@ at augue pretium, molestie lorem non, suscipit lectus. Curabitur sed odio eget t
 ultrices sed eget turpis. Vivamus et lorem arcu. Suspendisse ultrices libero non purus dictum aliquam.
 )";
 
-
-int main(const int argc, const char**argv) {
-    if(argc > 1){
+int main(const int argc, const char **argv)
+{
+    if (argc > 1)
+    {
         std::cout << usage << std::endl;
         return 0;
     }
@@ -20,7 +20,7 @@ int main(const int argc, const char**argv) {
     std::cout << "Drawing stuff!" << std::endl;
     third_party_library::Turtle turtle;
     canvas::DrawingContext<third_party_library::Turtle> context(turtle);
-    context.DrawRectangle(10,10,5,5);
-    
+    context.DrawRectangle(10, 10, 5, 5);
+
     return 0;
 }
