@@ -48,7 +48,7 @@ namespace
         EXPECT_CALL(turtle, Turn(90))
             .Times(4);
 
-        DrawingContext canvas(turtle);
+        DrawingContext<MockTurtle> canvas(turtle);
         canvas.DrawRectangle(0, 0, w, h);
     }
 

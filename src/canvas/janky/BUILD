@@ -3,7 +3,6 @@ cc_test(
   srcs = [
       "drawing_context_tests.cc",
       "drawing_context.h",
-      "turtle.h"
   ],
   deps = ["@com_google_googletest//:gtest_main"],
 )
