@@ -3,10 +3,22 @@
 #include "third_party_library_turtle.h"
 
 const std::string usage = R"(
-Canvas
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed justo a nulla luctus bibendum. Sed 
-at augue pretium, molestie lorem non, suscipit lectus. Curabitur sed odio eget turpis facilisis 
-ultrices sed eget turpis. Vivamus et lorem arcu. Suspendisse ultrices libero non purus dictum aliquam.
+# Canvas
+
+This is a concept-based solution. Key points:
+  - The interface is represented as a concept, canvas::Turtle
+  - The consumer canvas::DrawingContext is templatized, requiring the concept
+  - No need for an adapter class (not yet), since the third-party library matches the concept
+
+Pros:
+  - No runtime overhead
+  - No boilerplate
+  - Abstractions are captured
+  - Nice error messages
+
+Cons:
+  - Needs > C++20
+
 )";
 
 int main(const int argc, const char **argv)

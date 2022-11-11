@@ -3,10 +3,16 @@
 #include "third_party_library_turtle.h"
 
 const std::string usage = R"(
-Canvas
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed justo a nulla luctus bibendum. Sed 
-at augue pretium, molestie lorem non, suscipit lectus. Curabitur sed odio eget turpis facilisis 
-ultrices sed eget turpis. Vivamus et lorem arcu. Suspendisse ultrices libero non purus dictum aliquam.
+# Canvas
+
+Command-line application that draws some things using a third-party Turtle library.
+
+Pros:
+  - Seems to work
+
+Cons:
+  - No way to test
+  - Our component canvas::DrawingContext is tightly coupled to a third-party library
 )";
 
 int main(const int argc, const char **argv)

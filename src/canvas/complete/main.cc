@@ -4,10 +4,25 @@
 #include "turtle_adapter.h"
 
 const std::string usage = R"(
-Canvas
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed justo a nulla luctus bibendum. Sed 
-at augue pretium, molestie lorem non, suscipit lectus. Curabitur sed odio eget turpis facilisis 
-ultrices sed eget turpis. Vivamus et lorem arcu. Suspendisse ultrices libero non purus dictum aliquam.
+# Canvas
+
+This is the classic dependency injection described here: 
+  https://google.github.io/googletest/gmock_for_dummies.html#a-case-for-mock-turtles
+
+Key points:
+  - The interface canvas::Turtle represents an injectable dependency
+  - The consumer canvas::DrawingContext takes a reference to the interface in its constructor
+  - The wrapper class canvas::TurtleAdapter conforms the implementation (third_party_library::Turtle) to the interface
+
+Pros:
+  - Dependencies are explicit
+  - Interfaces are easy to mock
+  - The third party library is only use directly in one place, making it easy to swap out later.
+
+Cons:
+  - Boilerplate code
+  - Virtual methods add runtime overhead 
+
 )";
 
 int main(const int argc, const char **argv)

@@ -3,10 +3,21 @@
 #include "third_party_library_turtle.h"
 
 const std::string usage = R"(
-Canvas
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed justo a nulla luctus bibendum. Sed 
-at augue pretium, molestie lorem non, suscipit lectus. Curabitur sed odio eget turpis facilisis 
-ultrices sed eget turpis. Vivamus et lorem arcu. Suspendisse ultrices libero non purus dictum aliquam.
+# Canvas
+
+This is a template based solution as desribed by goggle test here: 
+  https://google.github.io/googletest/gmock_cook_book.html#MockingNonVirtualMethods
+
+Rather than taking an abstract base class, DrawingContext (the consuming code) is templatized.
+
+Pros:
+  - No overhead from virtual functions
+  - No boilerplate adapter class
+
+Cons:
+  - Confusing error messages
+  - Turtle interface is an uncaptured abstraction.
+
 )";
 
 int main(const int argc, const char **argv)
