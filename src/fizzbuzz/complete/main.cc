@@ -1,7 +1,7 @@
 #include <iostream>
-#include "fizz_buzz.h"
-using namespace std;
+#include "get_message.h"
 
+using namespace fizzbuzz;
 
 const std::string usage = R"(
 Fizz Buzz
@@ -20,14 +20,16 @@ Requirements
   * Write the correct output--described above-- to the console.
 )";
 
-
-int main(const int argc, const char**argv) {
-    if(argc > 1){
+int main(const int argc, const char **argv)
+{
+    if (argc > 1)
+    {
         std::cout << usage << std::endl;
         return 0;
     }
 
-    for(int i=1;i<101;i++){
+    for (int i = 1; i < 101; i++)
+    {
         std::cout << getMessage(i) << std::endl;
     }
     return 0;

@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
-#include "fizz_buzz.h"
+#include "get_message.h"
+
+using namespace fizzbuzz;
 
 namespace {
 
