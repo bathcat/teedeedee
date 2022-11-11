@@ -1,22 +1,21 @@
 #include <gtest/gtest.h>
 #include "gmock/gmock.h"
 #include "drawingcontext.h"
-#include "turtle_base.h"
 
 using ::testing::AtLeast;
 using namespace canvas;
 
-class MockTurtle : public TurtleBase
+class MockTurtle
 {
 public:
-    MOCK_METHOD(void, PenUp, (), (override));
-    MOCK_METHOD(void, PenDown, (), (override));
-    MOCK_METHOD(void, Forward, (int distance), (override));
-    MOCK_METHOD(void, Turn, (int degrees), (override));
-    MOCK_METHOD(void, GoTo, (int x, int y), (override));
-    MOCK_METHOD(void, TurnTo, (int degrees), (override));
-    MOCK_METHOD(int, GetX, (), (const, override));
-    MOCK_METHOD(int, GetY, (), (const, override));
+    MOCK_METHOD(void, PenUp, (), ());
+    MOCK_METHOD(void, PenDown, (), ());
+    MOCK_METHOD(void, Forward, (int distance), ());
+    MOCK_METHOD(void, Turn, (int degrees), ());
+    MOCK_METHOD(void, GoTo, (int x, int y), ());
+    MOCK_METHOD(void, TurnTo, (int degrees), ());
+    MOCK_METHOD(int, GetX, (), ());
+    MOCK_METHOD(int, GetY, (), ());
 };
 
 namespace
