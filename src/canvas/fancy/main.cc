@@ -18,6 +18,8 @@ Pros:
 
 Cons:
   - Needs > C++20
+  - Concepts are still new to developers and toolchains
+  - Eventually, we may need to create an adapter component
 
 )";
 
