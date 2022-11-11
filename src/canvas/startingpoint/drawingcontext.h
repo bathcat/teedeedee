@@ -1,17 +1,20 @@
-#ifndef DRAWING_CONTEXT_H_
-#define DRAWING_CONTEXT_H_
+#ifndef CANVAS_H_
+#define CANVAS_H_
 
 #include <iostream>
-#include <memory>
-#include "turtle.h"
+#include "third_party_library_turtle.h"
 
 namespace canvas
 {
 
    class DrawingContext
    {
+
+   private:
+      third_party_library::Turtle &turtle;
+
    public:
-      DrawingContext(Turtle &turtle) : turtle(turtle) {}
+      DrawingContext(third_party_library::Turtle &turtle) : turtle(turtle) {}
 
       void DrawRectangle(int x, int y, unsigned int w, unsigned int h)
       {
@@ -33,8 +36,6 @@ namespace canvas
          turtle.Forward(h);
       }
 
-   private:
-      Turtle &turtle;
    };
 
 }

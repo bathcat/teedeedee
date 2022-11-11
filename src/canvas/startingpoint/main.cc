@@ -1,7 +1,6 @@
 #include <iostream>
 #include "drawingcontext.h"
 #include "third_party_library_turtle.h"
-#include "turtle_adapter.h"
 
 
 
@@ -21,8 +20,7 @@ int main(const int argc, const char**argv) {
 
     std::cout << "Drawing stuff!" << std::endl;
     third_party_library::Turtle turtle;
-    canvas::TurtleAdapter turtleAdapter(turtle);
-    canvas::DrawingContext context(turtleAdapter);
+    canvas::DrawingContext context(turtle);
     context.DrawRectangle(10,10,5,5);
     
     return 0;

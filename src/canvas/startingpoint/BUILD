@@ -3,7 +3,7 @@ cc_test(
   srcs = [
       "drawingcontext_tests.cc",
       "drawingcontext.h",
-      "turtle.h"
+      "third_party_library_turtle.h"
   ],
   deps = ["@com_google_googletest//:gtest_main"],
 )
@@ -13,8 +13,6 @@ cc_binary(
   srcs = [
       "third_party_library_turtle.h",
       "drawingcontext.h",
-      "turtle_adapter.h",
-      "turtle.h",
       "main.cc"
   ],
 )
