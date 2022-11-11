@@ -3,13 +3,12 @@
 
 #include <iostream>
 #include <memory>
-#include "turtle_base.h"
-#include "c_turtle.h"
+#include "turtle.h"
 
 namespace canvas
 {
-   template<class T> 
-   requires CTurtle<T>
+   template <class T>
+   requires Turtle<T>
    class DrawingContext
    {
    public:

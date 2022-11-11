@@ -3,8 +3,7 @@ cc_test(
   srcs = [
       "drawingcontext_tests.cc",
       "drawingcontext.h",
-      "turtle_base.h",
-      "c_turtle.h"
+      "turtle.h"
   ],
     copts = [
       "-std=c++20"
@@ -13,9 +12,3 @@ cc_test(
 )
 
 
-cc_binary(
-  name = "main",
-  srcs = [
-    "main.cc",
-  ],
-)
