@@ -3,5 +3,21 @@
    // Hover to view descriptions of existing attributes.
    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
    "version": "0.2.0",
-   "configurations": []
+   "configurations": [
+      {
+         "name": "Exxxxxample",
+         "preLaunchTask": "Build Example (Debug)",
+         "type": "cppdbg",
+         "request": "launch",
+         "MIMode": "gdb",
+         "miDebuggerPath": "/usr/bin/gdb",
+         "program": "${workspaceRoot}/bazel-out/k8-dbg/bin/src/canvas/complete/main",
+         "cwd": "${workspaceRoot}/bazel-out/k8-dbg/bin/src/canvas/complete/main.runfiles/__main__/",
+         "stopAtEntry": false,
+         "externalConsole": false,
+         "sourceFileMap":{
+            "/proc/self/cwd/src/canvas/complete/": "${workspaceFolder}/src/canvas/complete/"
+         }
+      }
+   ]
 }
