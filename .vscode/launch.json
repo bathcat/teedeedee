@@ -5,19 +5,19 @@
    "version": "0.2.0",
    "configurations": [
       {
-         "name": "Exxxxxample",
-         "preLaunchTask": "Build Example (Debug)",
+         "name": "Launch-Debug-Main",
+         "preLaunchTask": "Build-Debug",
          "type": "cppdbg",
          "request": "launch",
          "MIMode": "gdb",
          "miDebuggerPath": "/usr/bin/gdb",
-         "program": "${workspaceRoot}/bazel-out/k8-dbg/bin/src/canvas/complete/main",
-         "cwd": "${workspaceRoot}/bazel-out/k8-dbg/bin/src/canvas/complete/main.runfiles/__main__/",
+         "program": "${workspaceRoot}/bazel-out/k8-dbg/bin/${relativeFileDirname}/main",
+         "cwd": "${workspaceRoot}/bazel-out/k8-dbg/bin/${relativeFileDirname}/main.runfiles/__main__/",
          "stopAtEntry": false,
          "externalConsole": false,
-         "sourceFileMap":{
-            "/proc/self/cwd/src/canvas/complete/": "${workspaceFolder}/src/canvas/complete/"
+         "sourceFileMap": {
+            "/proc/self/cwd/${relativeFileDirname}/": "${workspaceFolder}/${relativeFileDirname}/"
          }
-      }
+      },
    ]
 }

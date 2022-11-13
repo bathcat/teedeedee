@@ -1,14 +1,11 @@
 {
-   "tasks": [
-      {
-         "label": "Build Example (Debug)",
-         "type": "shell",
-         "command": "bazelisk build //src/canvas/complete:main -c dbg",
-         "group": {
-            "kind": "build",
-            "isDefault": true
-         },
-      }
-   ],
-   "version": "2.0.0"
+    "tasks": [
+        {
+            "label": "Build-Debug",
+            "type": "shell",
+            "command": "bazelisk build //${relativeFileDirname}:main -c dbg",
+            "group": "build"
+        },
+    ],
+    "version": "2.0.0"
 }
