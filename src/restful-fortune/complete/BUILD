@@ -1,9 +1,7 @@
+
 cc_test(
   name = "test",
-  srcs = [
-      "fortune_tests.cc",
-      "fortune.h",
-  ],
+  srcs = glob( ["*.cc","*.h"],exclude=["main.cc"]),
   deps = [
     "@com_google_googletest//:gtest_main",
     "@cpp_httplib//:cpp-httplib"
@@ -12,12 +10,7 @@ cc_test(
 
 cc_binary(
   name = "main",
-  srcs = [
-    "main.cc",
-    "fortune_generator.h",
-    "http_client.h",
-    "http_client_adapter.h"
-  ],
+  srcs = glob( ["*.cc","*.h"],exclude=["*_tests.cc"]),  
   deps = [
     "@cpp_httplib//:cpp-httplib",
     "@nlohmann_json//:nlohmann-json",

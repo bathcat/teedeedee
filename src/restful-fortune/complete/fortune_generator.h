@@ -3,6 +3,7 @@
 
 #include <string>
 #include "http_client.h"
+#include "nlohmann/json.hpp"
 
 namespace fortune
 {
@@ -20,7 +21,13 @@ namespace fortune
 
       std::string getFortune()
       {
-         return "You will meet a short, pale stranger.";
+         const auto response = httpClient.Get("http://numbersapi.com/random/trivia?json");
+         if(response.status != 200){
+            return "[Error getting fortune. Try again later.]";
+         }
+         const auto json = nlohmann::json::parse(response.body);
+
+         return json["text"];
       }
    };
 

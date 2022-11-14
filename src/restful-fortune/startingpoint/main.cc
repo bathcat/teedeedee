@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "fortune.h"
 
 #define CPPHTTPLIB_OPENSSL_SUPPORT

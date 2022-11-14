@@ -12,10 +12,10 @@ namespace fortune
         unsigned short status;
         std::string body;
     
-        HttpResponse(unsigned short status, std::string body)
+        HttpResponse(unsigned short status_, std::string body_)
         {
-            status=status;
-            body=body;
+            status=status_;
+            body=body_;
         }
     };
 
