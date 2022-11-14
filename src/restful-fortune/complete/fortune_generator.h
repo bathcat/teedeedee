@@ -11,6 +11,7 @@ namespace fortune
    {
    private:
       HttpClient& httpClient;
+      const std::string uri = "http://numbersapi.com/random/trivia?json";
 
    public:
       FortuneGenerator(HttpClient& client)
@@ -21,12 +22,12 @@ namespace fortune
 
       std::string getFortune()
       {
-         const auto response = httpClient.Get("http://numbersapi.com/random/trivia?json");
+         const auto response = httpClient.Get(uri);
          if(response.status != 200){
             return "[Error getting fortune. Try again later.]";
          }
-         const auto json = nlohmann::json::parse(response.body);
 
+         const auto json = nlohmann::json::parse(response.body);
          return json["text"];
       }
    };

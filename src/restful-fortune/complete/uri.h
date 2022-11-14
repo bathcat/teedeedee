@@ -6,8 +6,10 @@
 
 namespace fortune
 {
+
+
     namespace uri{
-        
+
         std::tuple<std::string,std::string> parse(std::string uri){
             auto pos = uri.find("/",9);
             std::string root = uri.substr(0,pos);
