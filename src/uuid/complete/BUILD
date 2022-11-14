@@ -1,8 +1,13 @@
+
 cc_test(
   name = "test",
-  srcs = [
-      "uuid_tests.cc",
-      "uuid.h",
+  srcs = glob( ["*.cc","*.h"],exclude=["main.cc"]),
+  deps = [
+    "@com_google_googletest//:gtest_main",
   ],
-  deps = ["@com_google_googletest//:gtest_main"],
+)
+
+cc_binary(
+  name = "main",
+  srcs = glob( ["*.cc","*.h"],exclude=["*_tests.cc"]),  
 )
