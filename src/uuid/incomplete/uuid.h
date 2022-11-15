@@ -4,7 +4,6 @@
 #include <string>
 #include <limits>
 #include <unistd.h>
-#include <array>
 
 namespace uuid
 {
@@ -14,11 +13,6 @@ namespace uuid
    //
    namespace internal
    {
-      std::array<bool,8> to_bits(const char c){
-         return {true,true, true,true,true,true,true,true};
-      }
-
-
       unsigned int getLowBits(unsigned long i)
       {
          return i & 0xffffffff;
