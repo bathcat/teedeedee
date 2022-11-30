@@ -2,25 +2,44 @@
 #include "gmock/gmock.h"
 #include "uuid.h"
 #include <limits>
+#include <bitset>
 
 using namespace uuid;
 
 namespace
 {
-    TEST(toBits, ShouldConvertAllTrues)
+    TEST(concat, ShouldConcat)
     {
-        const char argument = 0b11111111;
-        const auto actual = uuid::internal::to_bits(argument);
-        EXPECT_TRUE(actual[0]);
-        EXPECT_TRUE(actual[1]);
-        EXPECT_TRUE(actual[2]);
-        EXPECT_TRUE(actual[3]);
-        EXPECT_TRUE(actual[4]);
-        EXPECT_TRUE(actual[5]);
-        EXPECT_TRUE(actual[6]);
-        EXPECT_TRUE(actual[7]);
+        const std::string lS = "10001";
+        std::bitset<5> l(lS);
+
+        const std::string rS = "001110";
+        std::bitset<6> r(rS);
+
+        const auto expected = internal::concat(l, r).to_string();
+        const auto actual = lS + rS;
+
+        EXPECT_EQ(actual, expected);
     }
 
+    TEST(slice, ShouldGetAppropriateThings)
+    {
+        const std::bitset<7> original("1100011");
+        const auto part = internal::slice<3>(original, 2);
+
+        const auto expected = 0;
+        const auto actual = part.to_ulong();
+
+        EXPECT_EQ(actual, expected);
+    }
+
+    TEST(toHexDigit, ShouldGetRightChar)
+    {
+        EXPECT_EQ('a', internal::toHexDigit(std::bitset<4>(10)));
+        EXPECT_EQ('0', internal::toHexDigit(std::bitset<4>(0)));
+        EXPECT_EQ('c', internal::toHexDigit(std::bitset<4>(12)));
+        EXPECT_EQ('3', internal::toHexDigit(std::bitset<4>(3)));
+    }
 
     // TEST(getLowBits, ShouldPreserveLowBits)
     // {

@@ -1,11 +1,10 @@
 #include <iostream>
-#include "uuid.h"
-#include <bitset>
+#include "pi.h"
 
 const std::string usage = R"(
-# Uuid
+# PI
 
-Command-line application to generate a new UUID
+Command-line application to derive the constant pi.
 )";
 
 int main(const int argc, const char **argv)
@@ -16,7 +15,7 @@ int main(const int argc, const char **argv)
         return 0;
     }
 
-    std::cout << std::hex << std::bitset<8>("0000011").to_ulong() << std::endl;
+    std::cout << "Pi is: " << pi::approximatePi() << std::endl;
 
     return 0;
 }
