@@ -7,9 +7,9 @@ using namespace money;
 namespace
 {
 
-    TEST(moneyNamespace, TrueShouldBeTrue)
+    TEST(MoneyTests, TrueShouldBeTrue)
     {
-        EXPECT_EQ(true, true);
+        EXPECT_EQ(true,true);
     }
 
 }

@@ -3,8 +3,10 @@
 
 namespace money
 {
-   
+  class Money
+  {
 
+  };
 
 }
 
