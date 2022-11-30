@@ -94,37 +94,93 @@ This course will be delivered in 2 days
 
 ## Setup
 
-Everything works with Bazel and GCC, but whatever you want to use is fine.
+Everything works with Bazel and GCC-- any recent version of either should be fine. But there's not much magic, so-- if you insist-- can easily set up some cmake files or just use **gcc** from the terminal.
 
-To test:
+#### Chose one of the options below. Then, to test that your setup is working:
+1. Open a terminal
+2. Navigate to the repository
+3. Run some arbitrary project like this:
 ```shell
 bazel run //src/pi/startingpoint:main
 ```
 
-### Github Spaces
+If everything works right, you'll see something like this:
+<img src='.assets/screenshot.bazel-run.png'>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis volutpat dolor. Suspendisse quis scelerisque nisl. Vestibulum dapibus scelerisque justo, non malesuada orci luctus at. 
+<br/>
+<br/>
+
+### Option 1: Github CodeSpaces
+
+With just a free account, you can run VSCode (or some version thereof) with Docker in your browser.
+
+#### Advantages
+* Zero installation
+
+#### Disadvantages
+* Takes a *while* to download container images
+* Free version limits time an space
+* It's a hassle to view artifacts-- e.g. test coverage reports
+
+#### Steps:
+1. In a browser, navigate to https://github.com/bathcat/teedeedee
+2. Click **Code** > **Codespaces** > **Create codespace on main**
 
 <img src='.assets/screenshot.codespaces.0.png'>
 <img src='.assets/screenshot.codespaces.1.png'>
 <br/>
+<br/>
 
-### Docker (with VSCode)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis volutpat dolor. Suspendisse quis scelerisque nisl. Vestibulum dapibus scelerisque justo, non malesuada orci luctus at. 
+### Option 2: Docker (with VSCode)
 
-Read up on [Developing Inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
+Docker abstracts all software requirements, and VSCode works really well with containers. Read up on [Developing Inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
-1. [VSCode](https://code.visualstudio.com/)
-2. [Docker](https://www.docker.com/get-started/)
+#### Advantages
+* Less configuration
+* Repeatable environment setup
+* Artifacts live on your local filesystem
+
+#### Disadvantages
+* Takes a *while* to set up the environment
+* You need Docker
+* If your favorite editor *isn't* VSCode, you'll need to play around getting that set up
+
+#### Tools
+1. [Docker](https://www.docker.com/get-started/)
+2. [VSCode](https://code.visualstudio.com/)
 3. [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+
+#### Steps
+1. Clone repo
+2. Open in VSCode
+3. **F1** > **Dev Containers: Reopen in Container**
+
 
 <img src='.assets/screenshot.reopen-in-container.png'>
 
 <br/>
+<br/>
 
 
-### On the Metal
+### Option 3: On the Metal
+There's nothing magical about this setup: it's GCC with Bazel and a couple less-important bits for debugging and code coverage. So if you don't want to mess with containers, that's ok too.
 
+#### Advantages
+* Everything is local
+* No messing with containers
+* Use your favorite IDE
+* No time wasted downloading container images
+
+#### Disadvantages
+* I only tested this on Linux
+* Weird stuff might happen if our versions are different
+
+#### Tools
 1. [Bazel](https://bazel.build/start)
 2. [GCC](https://gcc.gnu.org/)
+3. **lcov** and **gdb** -- e.g. `> sudo apt-get update && apt-get install lcov gdb`
+
+#### Steps
+1. Clone repo
+2. Open in your favorite editor
