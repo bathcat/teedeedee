@@ -1,13 +1,28 @@
 # Test-Driven Development (TDD)
 
+
 Learn how to define the iterative and quality-focused software development methodology of TDD.
 
-## Course Overview:
+---
+
+## Contents
+
+* [Overview](#overview)
+* [Outline](#outline)
+* [Setup](#setup)
+
+---
+
+## Overview
 The Test-Driven Development training course demonstrates how it can be used to create high quality software.
-The course begins with an examination of common test terminologies, practices, benefits, and pitfalls. The course then moves into a discussion on the theory and practice of Test-Driven Development (TDD). It also covers the applicability of TDD in modern software development paradigms, and how it can be leveraged within different software engineering processes. Once the foundation has been laid, the TDD course transitions into a hands-on learning lab. Finally, students learn the processes and practices of TDD in the creation of a basic application.
 
+The course begins with an examination of common test terminologies, practices, benefits, and pitfalls. The course then moves into a discussion on the theory and practice of Test-Driven Development (TDD). It also covers the applicability of TDD in modern software development paradigms, and how it can be leveraged within different software engineering processes. Once the foundation has been laid, the TDD course transitions into a hands-on learning lab.
 
-## Productivity Objectives:
+Finally, students learn the processes and practices of TDD in the creation of a basic application.
+
+<br/>
+
+### Objectives
 After this course, you will be able to:
 * Identify software testing concepts
 * Describe the testing process
@@ -17,10 +32,16 @@ After this course, you will be able to:
 * Research the continuous and integration testing tool
 * Incorporate TDD into your organization
 
-## Course Duration:
+<br/>
+
+### Duration
 This course will be delivered in 2 days
 
-## Course Outline
+<br/>
+
+---
+
+## Outline
 
 * What is TDD?
   - Why Adopt TDD
@@ -69,3 +90,41 @@ This course will be delivered in 2 days
   - Measuring and Monitoring Adoption
   - Adjustments
 
+---
+
+## Setup
+
+Everything works with Bazel and GCC, but whatever you want to use is fine.
+
+To test:
+```shell
+bazel run //src/pi/startingpoint:main
+```
+
+### Github Spaces
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis volutpat dolor. Suspendisse quis scelerisque nisl. Vestibulum dapibus scelerisque justo, non malesuada orci luctus at. 
+
+<img src='.assets/screenshot.codespaces.0.png'>
+<img src='.assets/screenshot.codespaces.1.png'>
+<br/>
+
+### Docker (with VSCode)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis volutpat dolor. Suspendisse quis scelerisque nisl. Vestibulum dapibus scelerisque justo, non malesuada orci luctus at. 
+
+Read up on [Developing Inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
+
+1. [VSCode](https://code.visualstudio.com/)
+2. [Docker](https://www.docker.com/get-started/)
+3. [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+
+<img src='.assets/screenshot.reopen-in-container.png'>
+
+<br/>
+
+
+### On the Metal
+
+1. [Bazel](https://bazel.build/start)
+2. [GCC](https://gcc.gnu.org/)
