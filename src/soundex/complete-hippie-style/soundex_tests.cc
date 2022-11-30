@@ -2,16 +2,26 @@
 #include "gmock/gmock.h"
 
 #include "soundex.h"
+#include <range/v3/range/conversion.hpp>
+#include <range/v3/view/take.hpp>
 
 using namespace soundex;
+using ranges::to;
+using ranges::views::take;
 
 namespace
 {
 
-    TEST(SoundexEncoding, ShouldCaptureFirstCharacter)
+    TEST(internalGetPrefix, ShouldTakeFirstThing)
     {
-        const auto result = soundex::encode("Antimony");
-        EXPECT_EQ(result[0], 'A');
+        const auto result = soundex::internal::getPrefix("Antimony") | to<std::string>();
+        EXPECT_EQ("A", result);
+    }
+
+    TEST(internalGetPadding, ShouldBeZeros)
+    {
+        const auto result = soundex::internal::getPadding() | take(4) |to<std::string>();
+        EXPECT_EQ("0000", result);
     }
 
     TEST(SoundexEncoding, ShouldPadWithZeros)
