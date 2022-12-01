@@ -28,7 +28,7 @@ namespace money
       _positions.insert_or_assign(p.symbol(), p);
     }
 
-    void report(std::ostream &stream)
+    const void report(std::ostream &stream)
     {
       for (auto &[symbol, position] : _positions)
       {
