@@ -24,16 +24,16 @@ namespace money
       converters.push_back(c);
     }
 
-    const Position consolidate(Position &position, const std::string inTermsOf)
+    const Position consolidate(Position &original, const std::string inTermsOf)
     {
       for (auto c : converters)
       {
-        if (c.symbolFrom() == position.symbol() && c.symbolTo() == inTermsOf)
+        if (c.symbolFrom() == original.symbol() && c.symbolTo() == inTermsOf)
         {
-          return c.convert(position.quantity());
+          return c.convert(original.quantity());
         }
       }
-      return position;
+      return original;
     }
   };
 
