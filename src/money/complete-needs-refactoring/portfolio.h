@@ -30,7 +30,7 @@ namespace money
 
     const void report(std::ostream &stream)
     {
-      for (auto &[symbol, position] : _positions)
+      for ( auto &[symbol, position] : _positions)
       {
         stream << symbol << ": " << position.quantity() << std::endl;
       }

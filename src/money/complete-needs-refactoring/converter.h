@@ -30,7 +30,7 @@ namespace money
       return _symbolFrom;
     }
 
-    Position convert(const int quantity)
+    const Position convert(const int quantity)
     {
       return Position(_symbolTo, quantity*_rate);
     }

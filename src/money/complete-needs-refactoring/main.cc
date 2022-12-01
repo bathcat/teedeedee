@@ -23,8 +23,12 @@ int main(const int argc, const char **argv)
     Portfolio original;
     original.deposit(Position("MSFT",1000));
     original.deposit(Position("ABC",200));
-
     original.report(std::cout);
+
+    Market m;
+    m.addConverter(Converter("MSFT","USD",95.));
+    m.addConverter(Converter("ABC","USD",401.));
+
 
     return 0;
 }
