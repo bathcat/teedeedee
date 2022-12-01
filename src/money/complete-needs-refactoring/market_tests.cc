@@ -8,33 +8,32 @@ using namespace money;
 namespace
 {
 
-    TEST(MarketTests, tryConvertPositionShouldUseAppropriateConverter)
+    TEST(MarketTests, consolidateShouldUseAppropriateConverter)
     {
-        //Arrange
+        // Arrange
         Market m;
-        m.addConverter(Converter("USD","EUR",2));
-        Position usdPosition("USD",100);
+        m.addConverter(Converter("USD", "EUR", 2));
+        Position usdPosition("USD", 100);
 
-        //Act
-        auto eurPosition = m.tryConvert(usdPosition,"EUR");
+        // Act
+        auto eurPosition = m.consolidate(usdPosition, "EUR");
 
-        //Assert
-        EXPECT_EQ(eurPosition.quantity(),200);
+        // Assert
+        EXPECT_EQ(eurPosition.quantity(), 200);
     }
 
-    TEST(MarketTests, tryConvertPositionShouldDoNothingWithNoConverter)
+    TEST(MarketTests, consolidateShouldDoNothingWithNoConverter)
     {
-        //Arrange
+        // Arrange
         Market m;
-        Position usdPosition("USD",100);
+        Position usdPosition("USD", 100);
 
-        //Act
-        auto convertedPosition = m.tryConvert(usdPosition,"EUR");
+        // Act
+        auto convertedPosition = m.consolidate(usdPosition, "EUR");
 
-        //Assert
-        EXPECT_EQ(convertedPosition.quantity(),100);
-        EXPECT_EQ(convertedPosition.symbol(),"USD");
+        // Assert
+        EXPECT_EQ(convertedPosition.quantity(), 100);
+        EXPECT_EQ(convertedPosition.symbol(), "USD");
     }
-
 
 }

@@ -13,10 +13,11 @@ namespace money
     std::string _symbol;
 
   public:
-    Position(std::string symbol, int quantity)
+    Position(const std::string symbol, const int quantity)
+    :_quantity(quantity),
+    _symbol(symbol)
     {
-      _quantity = quantity;
-      _symbol = symbol;
+
     }
 
     const int quantity()
