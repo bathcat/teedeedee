@@ -8,7 +8,7 @@ using namespace money;
 namespace
 {
 
-    TEST(MarketTests, consolidateShouldUseAppropriateConverter)
+    TEST(MarketTests, consolidatePositionShouldUseAppropriateConverter)
     {
         // Arrange
         Market m;
@@ -22,7 +22,7 @@ namespace
         EXPECT_EQ(eurPosition.quantity(), 200);
     }
 
-    TEST(MarketTests, consolidateShouldDoNothingWithNoConverter)
+    TEST(MarketTests, consolidatePositionShouldDoNothingWithNoConverter)
     {
         // Arrange
         Market m;
