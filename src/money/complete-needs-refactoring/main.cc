@@ -23,6 +23,7 @@ int main(const int argc, const char **argv)
     Portfolio original;
     original.deposit(Position("MSFT",1000));
     original.deposit(Position("ABC",200));
+    std::cout << "====================" << std::endl;
     original.report(std::cout);
 
     Market m;
@@ -30,5 +31,6 @@ int main(const int argc, const char **argv)
     m.addConverter(Converter("ABC","USD",401.));
 
 
+    std::cout << "====================" << std::endl;
     return 0;
 }

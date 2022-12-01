@@ -15,24 +15,26 @@ namespace money
     float _rate;
 
   public:
-    Converter(std::string symbolFrom, std::string symbolTo, float rate)
+    Converter(const std::string symbolFrom, const std::string symbolTo, const float rate)
+        : _symbolFrom(symbolFrom),
+          _symbolTo(symbolTo),
+          _rate(rate)
     {
-      _symbolFrom = symbolFrom;
-      _symbolTo = symbolTo;
-      _rate = rate;
     }
 
-    const std::string symbolTo(){
+    const std::string symbolTo()
+    {
       return _symbolTo;
     }
 
-    const std::string symbolFrom(){
+    const std::string symbolFrom()
+    {
       return _symbolFrom;
     }
 
     const Position convert(const int quantity)
     {
-      return Position(_symbolTo, quantity*_rate);
+      return Position(_symbolTo, quantity * _rate);
     }
   };
 
