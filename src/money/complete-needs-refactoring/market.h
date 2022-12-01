@@ -5,9 +5,12 @@
 #include <vector>
 #include "position.h"
 #include "converter.h"
+#include "portfolio.h"
 
 namespace money
 {
+
+
 
   class Market
   {
@@ -35,8 +38,22 @@ namespace money
       }
       return original;
     }
-  };
 
+    
+    const Portfolio consolidate(Portfolio &original, const std::string inTermsOf)
+    {
+      Portfolio consolidatedPortfolio;
+
+      for(auto &[symbol, position] : original.positions()){
+        auto consolidatedPosition = consolidate(position, inTermsOf);
+        consolidatedPortfolio.deposit(consolidatedPosition);
+      }
+
+      return consolidatedPortfolio;
+    }
+
+
+  };
 
 }
 

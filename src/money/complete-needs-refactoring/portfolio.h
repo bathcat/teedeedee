@@ -30,10 +30,18 @@ namespace money
 
     const void report(std::ostream &stream)
     {
-      for ( auto &[symbol, position] : _positions)
+      for (auto &[symbol, position] : _positions)
       {
         stream << symbol << ": " << position.quantity() << std::endl;
       }
+    }
+
+    std::map<std::string, Position> positions()
+    {
+      // std::map<std::string, Position> ps;
+      // ps.insert(_positions.begin(),_positions.end());
+      // return ps;
+      return _positions;
     }
   };
 
