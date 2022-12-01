@@ -21,10 +21,10 @@ int main(const int argc, const char **argv)
     }
 
     Portfolio original;
-    // original.deposit(Position("MSFT",1000));
-    // original.deposit(Position("ABC",200));
+    original.deposit(Position("MSFT",1000));
+    original.deposit(Position("ABC",200));
 
-    // original.report(std::cout);
+    original.report(std::cout);
 
     return 0;
 }

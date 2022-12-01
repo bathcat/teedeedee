@@ -1,7 +1,7 @@
 #ifndef POSITION_H_
 #define POSITION_H_
 
-#include <string>;
+#include <string>
 
 namespace money
 {
@@ -19,11 +19,6 @@ namespace money
       _symbol = symbol;
     }
 
-    // Position(Position original){
-    //   _quantity=original.quantity();
-    //   _symbol=original.symbol();
-    // }
-
     const int quantity()
     {
       return _quantity;
@@ -36,12 +31,12 @@ namespace money
 
     const Position add(Position &right)
     {
-      if (right.symbol() != _symbol)
+      if (right.symbol() != symbol())
       {
         throw std::invalid_argument("Wrong currency!");
       }
 
-      return Position(_symbol, _quantity + right.quantity());
+      return Position(symbol(), quantity() + right.quantity());
     }
   };
 
