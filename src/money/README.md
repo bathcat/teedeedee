@@ -34,3 +34,11 @@ We also need to specify exchange rates:
 | USD   | EUR   | 1.10  | 
 | EUR   | USD   | 0.87  | 
 
+
+> What behavior will we need to produce the revised report? Put another way, what
+> set of tests, when passed, will demonstrate the presence of code we are conﬁdent
+> will compute the report correctly?
+> 
+> We need to be able to add amounts in two diﬀerent currencies and convert the
+> result given a set of exchange rates. We need to be able to multiply an amount (price > per share) by a number (number of shares) and receive an amount.
+

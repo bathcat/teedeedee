@@ -3,9 +3,8 @@
 
 namespace money
 {
-  class Money
+  class Position
   {
-
   };
 
 }

@@ -1,11 +1,16 @@
 #include <iostream>
-#include "money.h"
+#include "market.h"
+#include "portfolio.h"
+#include "converter.h"
+#include "position.h"
 
 const std::string usage = R"(
 # Money
 
 Command-line application to convert money.
 )";
+
+using namespace money;
 
 int main(const int argc, const char **argv)
 {
@@ -15,7 +20,11 @@ int main(const int argc, const char **argv)
         return 0;
     }
 
-    std::cout << "TODO: Do money stuff" << std::endl;
+    Portfolio original;
+    // original.deposit(Position("MSFT",1000));
+    // original.deposit(Position("ABC",200));
+
+    // original.report(std::cout);
 
     return 0;
 }
