@@ -36,7 +36,7 @@ namespace money
       }
     }
 
-    std::map<std::string, Position> positions()
+    const std::map<std::string, Position> positions()
     {
       std::map<std::string, Position> ps;
       ps.insert(_positions.begin(),_positions.end());
