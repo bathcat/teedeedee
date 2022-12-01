@@ -30,14 +30,14 @@ namespace money
       return _symbol;
     }
 
-    const Position add(Position &right)
+    const Position add(Position &other)
     {
-      if (right.symbol() != symbol())
+      if (other.symbol() != symbol())
       {
         throw std::invalid_argument("Wrong currency!");
       }
 
-      return Position(symbol(), quantity() + right.quantity());
+      return Position(symbol(), quantity() + other.quantity());
     }
   };
 

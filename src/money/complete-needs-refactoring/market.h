@@ -24,7 +24,7 @@ namespace money
       converters.push_back(c);
     }
 
-    const Position consolidate(Position &position, const std::string inTermsOf)
+    const Position consolidate(const Position &position, const std::string inTermsOf)
     {
       for (auto c : converters)
       {
