@@ -44,7 +44,7 @@ namespace money
     {
       Portfolio consolidatedPortfolio;
 
-      for(auto &[symbol, position] : original.positions()){
+      for(auto &[symbol, position] : original._positions){
         auto consolidatedPosition = consolidate(position, inTermsOf);
         consolidatedPortfolio.deposit(consolidatedPosition);
       }

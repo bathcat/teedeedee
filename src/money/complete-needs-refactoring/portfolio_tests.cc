@@ -8,9 +8,11 @@ using namespace money;
 namespace
 {
 
-    TEST(PortfolioTests, AddShouldTotal)
+    TEST(PortfolioTests, DepositNewShouldStick)
     {
-        Portfolio wallet;
+        Portfolio portfolio;
+        Position euros("EUR", 22);
+        portfolio.deposit(euros);
     }
 
 }

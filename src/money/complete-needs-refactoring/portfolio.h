@@ -12,9 +12,9 @@ namespace money
   class Portfolio
   {
   private:
-    std::map<std::string, Position> _positions;
 
   public:
+    std::map<std::string, Position> _positions;
     Portfolio()
     {
     }
