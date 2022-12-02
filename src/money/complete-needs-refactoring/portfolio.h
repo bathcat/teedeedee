@@ -12,18 +12,21 @@ namespace money
   class Portfolio
   {
   private:
+    std::map<std::string, Position> _positions;
 
   public:
-    std::map<std::string, Position> _positions;
     Portfolio()
     {
     }
     void deposit(Position p)
     {
-      auto newPosition = _positions.contains(p.symbol()) 
-      ? p.add(_positions.at(p.symbol()))
-      : p;
-      _positions.insert_or_assign(p.symbol(), newPosition);
+      auto newPosition = p;
+      if (_positions.contains(p.symbol()))
+      {
+        newPosition = newPosition.add(_positions.at(newPosition.symbol()));
+      }
+
+      _positions.insert_or_assign(newPosition.symbol(), newPosition);
     }
 
     const void report(std::ostream &stream)
@@ -37,7 +40,7 @@ namespace money
     std::map<std::string, Position> positions()
     {
       std::map<std::string, Position> ps;
-      ps.insert(_positions.begin(),_positions.end());
+      ps.insert(_positions.begin(), _positions.end());
       return ps;
     }
   };
