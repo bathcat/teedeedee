@@ -13,6 +13,8 @@ namespace
         Portfolio portfolio;
         Position euros("EUR", 22);
         portfolio.deposit(euros);
+
+        EXPECT_EQ(portfolio.positions().at("EUR").quantity(),22);
     }
 
 }

@@ -20,12 +20,10 @@ namespace money
     }
     void deposit(Position p)
     {
-      if (_positions.contains(p.symbol()))
-      {
-        _positions.insert_or_assign(p.symbol(), p.add(p));
-        return;
-      }
-      _positions.insert_or_assign(p.symbol(), p);
+      auto newPosition = _positions.contains(p.symbol()) 
+      ? p.add(_positions.at(p.symbol()))
+      : p;
+      _positions.insert_or_assign(p.symbol(), newPosition);
     }
 
     const void report(std::ostream &stream)
@@ -36,7 +34,7 @@ namespace money
       }
     }
 
-    const std::map<std::string, Position> positions()
+    std::map<std::string, Position> positions()
     {
       std::map<std::string, Position> ps;
       ps.insert(_positions.begin(),_positions.end());
