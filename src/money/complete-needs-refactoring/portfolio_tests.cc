@@ -11,10 +11,20 @@ namespace
     TEST(PortfolioTests, DepositNewShouldStick)
     {
         Portfolio portfolio;
-        Position euros("EUR", 22);
-        portfolio.deposit(euros);
+        portfolio.deposit(Position("EUR", 22));
 
         EXPECT_EQ(portfolio.positions().at("EUR").quantity(),22);
+    }
+
+    TEST(PortfolioTests, DuplicateDepositsShouldAdd)
+    {
+        Portfolio portfolio;
+    
+        portfolio.deposit(Position("EUR", 22));
+        portfolio.deposit(Position("USD", 900));
+        portfolio.deposit(Position("EUR", 22));
+
+        EXPECT_EQ(portfolio.positions().at("EUR").quantity(),44);
     }
 
 }
