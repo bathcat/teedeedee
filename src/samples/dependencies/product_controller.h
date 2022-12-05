@@ -12,15 +12,15 @@ using namespace std;
 namespace dependencies
 {
 
-   template <class T>
-   requires CLogger<T>
+   template <class Tlogger>
+   requires CLogger<Tlogger>
    class ProductController
    {
       private:
       int _nextID;
-      T &_logger;
+      Tlogger &_logger;
    public:
-      ProductController(Logger &logger,int nextID = 1000) 
+      ProductController(Tlogger &logger,int nextID = 1000) 
       :_nextID(nextID),
       _logger(logger) {}
 
@@ -35,6 +35,8 @@ namespace dependencies
          p.name=name;
          p.description=description;
          p.id = _nextID++;
+
+         _logger.Info("Product created!");
          return p;
       }
 

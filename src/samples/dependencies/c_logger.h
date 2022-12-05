@@ -11,10 +11,10 @@ namespace dependencies
    template <typename Tlogger>
    concept CLogger = requires(Tlogger logger, string message)
    {
-      {logger.info(message)} -> std::same_as<void>;
-      {logger.debug(message)} -> std::same_as<void>;
-      {logger.error(message)} -> std::same_as<void>;
-      {logger.warn(message)} -> std::same_as<void>;
+      {logger.Info(message)} -> std::same_as<void>;
+      {logger.Debug(message)} -> std::same_as<void>;
+      {logger.Error(message)} -> std::same_as<void>;
+      {logger.Warn(message)} -> std::same_as<void>;
    };
 
 }
