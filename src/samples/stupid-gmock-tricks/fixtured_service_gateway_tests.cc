@@ -26,7 +26,7 @@ namespace
     class ServiceGatewayTest : public ::testing::Test
     {
     protected:
-        MockLogger _logger;
+        NiceMock<MockLogger> _logger;
         UserController _userController;
         ProductController _productController;
         AuthenticationController _authenticationController;

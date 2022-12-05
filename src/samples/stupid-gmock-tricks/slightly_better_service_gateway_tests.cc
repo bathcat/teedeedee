@@ -26,7 +26,7 @@ namespace
     TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldParseCustomersRequest)
     {
         // Arrange
-        MockLogger logger;
+        NiceMock<MockLogger> logger;
         auto userController = UserController(logger);
         auto productController = ProductController(logger);
         auto authenticationController = AuthenticationController(logger);
@@ -44,7 +44,7 @@ namespace
     TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldParseProductsRequest)
     {
         // Arrange
-        MockLogger logger;
+        NiceMock<MockLogger> logger;
         auto userController = UserController(logger);
         auto productController = ProductController(logger);
         auto authenticationController = AuthenticationController(logger);
@@ -62,7 +62,7 @@ namespace
     TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldParseUsersRequest)
     {
         // Arrange
-        MockLogger logger;
+        NiceMock<MockLogger> logger;
         auto userController = UserController(logger);
         auto productController = ProductController(logger);
         auto authenticationController = AuthenticationController(logger);
@@ -80,7 +80,7 @@ namespace
     TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldDefaultToErrorController)
     {
         // Arrange
-        MockLogger logger;
+        NiceMock<MockLogger> logger;
         auto userController = UserController(logger);
         auto productController = ProductController(logger);
         auto authenticationController = AuthenticationController(logger);
