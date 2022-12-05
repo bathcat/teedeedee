@@ -35,5 +35,8 @@ refresh_compile_commands(
         "//src/soundex/complete-hippie-style:test": "",
         "//src/soundex/complete-textbook-needs-refactoring:main": "",
         "//src/soundex/complete-textbook-needs-refactoring:test": "",
+        "//src/samples/dependencies:test": "",
+        "//src/samples/stupid-gmock-tricks:test": "",
+        "//src/samples/ut-fundamentals:test": "",
     },
 )
