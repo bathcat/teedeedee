@@ -31,7 +31,6 @@ namespace stupid_gmock_tricks
             _logger(logger)
       {
          logger.Debug("[[[[ Doing ProductController stuff. ]]]]");
-         throw std::invalid_argument("Baaaa!");
       }
 
       HttpResponse CreateNew(string name, string description)
@@ -47,7 +46,7 @@ namespace stupid_gmock_tricks
          p.id = _nextID++;
 
          _logger.Info("Product created!");
-         return HttpResponse(200,"{result:'ok'}");
+         return HttpResponse(200, "{result:'ok'}");
       }
    };
 
