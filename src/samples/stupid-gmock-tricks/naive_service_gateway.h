@@ -1,5 +1,5 @@
-#ifndef SERVICE_GATEWAY_H_
-#define SERVICE_GATEWAY_H_
+#ifndef NAIVE_SERVICE_GATEWAY_H_
+#define NAIVE_SERVICE_GATEWAY_H_
 
 #include <string>
 #include "logger.h"
