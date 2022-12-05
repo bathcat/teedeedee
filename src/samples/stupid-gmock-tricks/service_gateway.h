@@ -14,8 +14,12 @@ using namespace std;
 
 namespace stupid_gmock_tricks
 {
+   bool contains(string subject, string target)
+   {
+      return subject.find(target) != std::string::npos;
+   }
 
-   class NaiveServiceGateway
+   class ServiceGateway
    {
    private:
       Logger &_logger;
@@ -25,7 +29,7 @@ namespace stupid_gmock_tricks
       AuthenticationController &_authenticationController;
 
    public:
-      NaiveServiceGateway(
+      ServiceGateway(
           Logger &logger,
           UserController &userController,
           ProductController &productController,
@@ -36,9 +40,21 @@ namespace stupid_gmock_tricks
                                                                 _customerController(customerController),
                                                                 _authenticationController(authenticationController) {}
 
-      string route(HttpRequest &request)
+      string getController(const HttpRequest request)
       {
-         return "xyz";
+         if (contains(request.resource, "/customers"))
+         {
+            return "CustomerController";
+         }
+         if (contains(request.resource, "/users"))
+         {
+            return "UserController";
+         }
+         if (contains(request.resource, "/products"))
+         {
+            return "ProductController";
+         }
+         return "ErrorController";
       }
    };
 

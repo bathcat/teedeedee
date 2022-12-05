@@ -5,6 +5,7 @@
 #include <stdexcept>
 
 #include "logger.h"
+#include "http_response.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ namespace stupid_gmock_tricks
          logger.Debug("[[[[ Doing UserController stuff. ]]]]");
       }
 
-      User CreateNew(string givenName, string surname)
+      HttpResponse CreateNew(string givenName, string surname)
       {
          if (givenName == "")
          {
@@ -42,7 +43,8 @@ namespace stupid_gmock_tricks
          u.givenName = givenName;
          u.surname = surname;
          u.id = _nextID++;
-         return u;
+
+         return HttpResponse(200,"{result:'ok'}");
       }
    };
 

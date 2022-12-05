@@ -4,6 +4,7 @@
 #include <string>
 #include <stdexcept>
 #include "logger.h"
+#include "http_response.h"
 
 using namespace std;
 
@@ -30,7 +31,7 @@ namespace stupid_gmock_tricks
          logger.Debug("[[[[ Doing CustomerController stuff. ]]]]");
       }
 
-      Customer CreateNew(string login, string surname)
+      HttpResponse CreateNew(string login, string surname)
       {
          if (login == "")
          {
@@ -41,9 +42,11 @@ namespace stupid_gmock_tricks
          p.login = login;
          p.surname = surname;
          p.id = _nextID++;
-
+         //TODO: Persist
+         
          _logger.Info("Customer created!");
-         return p;
+
+         return HttpResponse(200,"{result:'ok'}");
       }
    };
 

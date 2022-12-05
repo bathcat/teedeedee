@@ -5,6 +5,7 @@
 #include <stdexcept>
 
 #include "logger.h"
+#include "http_response.h"
 
 using namespace std;
 
@@ -32,7 +33,7 @@ namespace stupid_gmock_tricks
          logger.Debug("[[[[ Doing ProductController stuff. ]]]]");
       }
 
-      Product CreateNew(string name, string description)
+      HttpResponse CreateNew(string name, string description)
       {
          if (name == "")
          {
@@ -45,7 +46,7 @@ namespace stupid_gmock_tricks
          p.id = _nextID++;
 
          _logger.Info("Product created!");
-         return p;
+         return HttpResponse(200,"{result:'ok'}");
       }
    };
 
