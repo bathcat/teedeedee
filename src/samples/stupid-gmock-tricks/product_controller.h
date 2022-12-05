@@ -31,6 +31,7 @@ namespace stupid_gmock_tricks
             _logger(logger)
       {
          logger.Debug("[[[[ Doing ProductController stuff. ]]]]");
+         throw std::invalid_argument("Baaaa!");
       }
 
       HttpResponse CreateNew(string name, string description)
