@@ -6,7 +6,6 @@
 
 #include "logger.h"
 
-
 using namespace std;
 
 namespace stupid_gmock_tricks
@@ -27,7 +26,10 @@ namespace stupid_gmock_tricks
    public:
       UserController(Logger &logger, int nextID = 1000)
           : _nextID(nextID),
-            _logger(logger) {}
+            _logger(logger)
+      {
+         logger.Debug("[[[[ Doing UserController stuff. ]]]]");
+      }
 
       User CreateNew(string givenName, string surname)
       {

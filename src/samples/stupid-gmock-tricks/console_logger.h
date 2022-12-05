@@ -7,24 +7,29 @@
 
 using namespace std;
 
-
 namespace stupid_gmock_tricks
 {
-   class ConsoleLogger: public Logger
+   class ConsoleLogger : public Logger
    {
+      private:
+      string _name;
    public:
-       ~ConsoleLogger() {}
-      void Debug(string message){
+      ConsoleLogger(string name):_name(name){}
+      ~ConsoleLogger() {}
+      void Debug(string message)
+      {
          std::cout << "Debug: " << message << std::endl;
       }
-      void Info(string message){
+      void Info(string message)
+      {
          std::cout << "Debug: " << message << std::endl;
       }
-      void Warning(string message){
+      void Warn(string message)
+      {
          std::cout << "Debug: " << message << std::endl;
-
       }
-      void Error(string message){
+      void Error(string message)
+      {
          std::cout << "Debug: " << message << std::endl;
       }
    };

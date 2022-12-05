@@ -27,7 +27,10 @@ namespace stupid_gmock_tricks
    public:
       ProductController(Logger &logger, int nextID = 1000)
           : _nextID(nextID),
-            _logger(logger) {}
+            _logger(logger)
+      {
+         logger.Debug("[[[[ Doing ProductController stuff. ]]]]");
+      }
 
       Product CreateNew(string name, string description)
       {
