@@ -8,39 +8,44 @@
 
 using namespace std;
 
-
 namespace dependencies
 {
+
+   struct Product
+   {
+      string name;
+      string description;
+      int id;
+   };
 
    template <class Tlogger>
    requires CLogger<Tlogger>
    class ProductController
    {
-      private:
+   private:
       int _nextID;
       Tlogger &_logger;
+
    public:
-      ProductController(Tlogger &logger,int nextID = 1000) 
-      :_nextID(nextID),
-      _logger(logger) {}
+      ProductController(Tlogger &logger, int nextID = 1000)
+          : _nextID(nextID),
+            _logger(logger) {}
 
       Product CreateNew(string name, string description)
       {
-        if (name == "")
-        {
+         if (name == "")
+         {
             throw std::invalid_argument("Name can't be empty");
-        }
+         }
 
          Product p;
-         p.name=name;
-         p.description=description;
+         p.name = name;
+         p.description = description;
          p.id = _nextID++;
 
          _logger.Info("Product created!");
          return p;
       }
-
-
    };
 
 }
