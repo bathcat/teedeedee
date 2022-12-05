@@ -96,10 +96,3 @@ namespace
     }
 
 }
-
-//
-//With test fixtures
-//
-//
-//
-//
