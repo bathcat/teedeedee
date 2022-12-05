@@ -3,18 +3,15 @@
 
 #include <string>
 #include "logger.h"
+#include "user.h"
 #include "console_logger.h"
 
 using namespace std;
 
 
-namespace utFundamentals
+namespace dependencies
 {
-   struct User{
-     string givenName;
-     string surname;
-     int id;
-   };
+
 
    class UserController
    {

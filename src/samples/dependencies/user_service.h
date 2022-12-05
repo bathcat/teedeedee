@@ -8,7 +8,7 @@
 using namespace std;
 
 
-namespace utFundamentals
+namespace dependencies
 {
    struct User{
      string givenName;

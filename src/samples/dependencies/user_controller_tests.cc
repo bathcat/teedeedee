@@ -4,7 +4,7 @@
 #include "user_controller.h"
 #include "logger.h"
 
-using namespace utFundamentals;
+using namespace dependencies;
 using namespace std;
 
 namespace
