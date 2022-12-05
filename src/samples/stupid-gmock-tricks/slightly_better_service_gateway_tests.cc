@@ -23,7 +23,7 @@ namespace
         MOCK_METHOD(void, Warn, (string message), (override));
     };
 
-    TEST(ServiceGatewayTests, GetControllerShouldParseCustomersRequest)
+    TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldParseCustomersRequest)
     {
         // Arrange
         MockLogger logger;
@@ -41,7 +41,7 @@ namespace
         EXPECT_EQ(controller, "CustomerController");
     }
 
-    TEST(ServiceGatewayTests, GetControllerShouldParseProductsRequest)
+    TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldParseProductsRequest)
     {
         // Arrange
         MockLogger logger;
@@ -59,7 +59,7 @@ namespace
         EXPECT_EQ(controller, "ProductController");
     }
 
-    TEST(ServiceGatewayTests, GetControllerShouldParseUsersRequest)
+    TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldParseUsersRequest)
     {
         // Arrange
         MockLogger logger;
@@ -77,7 +77,7 @@ namespace
         EXPECT_EQ(controller, "UserController");
     }
 
-    TEST(ServiceGatewayTests, GetControllerShouldDefaultToErrorController)
+    TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldDefaultToErrorController)
     {
         // Arrange
         MockLogger logger;
@@ -96,3 +96,10 @@ namespace
     }
 
 }
+
+//
+//With test fixtures
+//
+//
+//
+//

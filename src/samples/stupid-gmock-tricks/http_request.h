@@ -11,13 +11,14 @@ namespace stupid_gmock_tricks
   {
     string resource;
     string token;
-    string body;
     string method;
+    string body;
     HttpRequest(string _resource, string _token, string _method, string _body)
-        : token(_token),
-          body(_body),
+        : 
           resource(_resource),
-          method(_method)
+          token(_token),
+          method(_method),
+          body(_body)
     {
     }
   };

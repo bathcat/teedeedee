@@ -14,10 +14,6 @@ using namespace std;
 
 namespace stupid_gmock_tricks
 {
-   bool contains(string subject, string target)
-   {
-      return subject.find(target) != std::string::npos;
-   }
 
    class ServiceGateway
    {
@@ -27,6 +23,11 @@ namespace stupid_gmock_tricks
       ProductController &_productController;
       CustomerController &_customerController;
       AuthenticationController &_authenticationController;
+
+      bool contains(string subject, string target)
+      {
+         return subject.find(target) != std::string::npos;
+      }
 
    public:
       ServiceGateway(
