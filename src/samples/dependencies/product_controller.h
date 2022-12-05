@@ -3,8 +3,6 @@
 
 #include <string>
 #include "c_logger.h"
-#include "product.h"
-#include "console_logger.h"
 
 using namespace std;
 

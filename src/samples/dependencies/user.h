@@ -8,7 +8,11 @@ using namespace std;
 
 namespace dependencies
 {
-
+   struct User{
+     string givenName;
+     string surname;
+     int id;
+   };
 
 }
 
