@@ -2,12 +2,38 @@
 
 ## Summary
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet placerat ex, sollicitudin convallis urna. Sed pulvinar pellentesque sapien ut iaculis. Nunc commodo massa id diam suscipit sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In id mauris ligula. Nunc pellentesque leo tortor, non dignissim turpis placerat non. Suspendisse potenti. Nunc accumsan molestie enim non eleifend. Curabitur semper nisl quis ex lobortis, sed interdum tellus sagittis.
+This is a simple command-line interface to a library that estimates pi using a stochastic process. 
 
-Cras viverra, nibh sit amet efficitur vulputate, lacus ante aliquam lectus, eget gravida sem sapien eu nibh. Integer rutrum, risus quis elementum varius, felis nunc pretium metus, fermentum tristique dolor est sit amet mauris. In consectetur leo at congue sagittis. Sed ut ante efficitur, maximus ligula eu, venenatis eros. Ut tempus elit turpis, finibus dignissim orci porttitor non. Mauris rhoncus neque eget nisi commodo, sit amet porttitor justo mattis. Etiam commodo eros sapien, a dapibus sapien malesuada sit amet. Curabitur malesuada erat magna, non varius erat fringilla et.
+Here's the output:
+
+<img src='.assets/screenshot.output-run.png'>
+
+<br/>
+
+It works-- well enough at least. There are even unit tests :
+<img src='.assets/screenshot.output-test-pass.png'>
+
+<br/>
+
+Problem is: the unit tests are naive and occasionally fail:
 
 
-## Hint: Bazel wants to cache test results
+<img src='.assets/screenshot.output-test-fail.png'>
+
+
+<br/>
+
+## Requirements
+
+Refactor by injecting a randomness mechanism that's controllable so that unit tests don't fail unexpectedly.
+
+<br/>
+
+
+## Hint
+As long as the binary doesn't change, bazel wants to cache test results. To see the tests fail intermittently, 
+pass the flag `--cache_test_results=no`.
+
 ```
 bazel test --cache_test_results=no --test_output=all  //src/pi/startingpoint:test
 ```
