@@ -1,64 +1,27 @@
-# Lab: Fizz Buzz - API Edition
+# Lab: Canvas
 
-## Summary: 
+## Summary
 
-Surprisingly, lots of professional programmers can't really 
-code[1]. FizzBuzz is a classic interview question for sussing-out 
-the non-skilled. 
-                  
-Here it is:
-* Write a program that prints the numbers from 1 to 100. 
-* But--
-  - For multiples of 3 print “Fizz” (instead of the number). 
-  - For multiples of 5 print “Buzz”. 
-  - For multiples of both 3 and 5 print “FizzBuzz”.
+This is a simple command-line application that draws some things using a third-party [Turtle](https://en.wikipedia.org/wiki/Turtle_graphics) graphics library. It's a 
+common example used in the **GMock** documentation. This implementation is inspired by the Web API [**CanvasRenderingContext2D**](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D).
 
-Your output should look like this:
-> 1  
-> 2  
-> fizz  
-> 4  
-> buzz  
-> ...  
+Everything works-- such as it is-- so you can run the startingpoint application to draw a rectangle and get output like this:
 
+<img src='.assets/screenshot.canvas-output.png'>
+
+(Pretend like it's drawing a rectangle.)
+
+<br/>
+
+
+**The problem** is that the current implementation is tightly coupled to the 3rd party turtle library, 
+making it hard to unit test. Additionally, the tight coupling would make it harder to switch to a different
+library in the future.
+
+<br/>
 
 ## Requirements
-1. Implement `toText` method
-2. Write the correct output--described above-- to the console
 
-## Stretch Goals
-* Write unit tests to document and test.
-
-Notes:
-1. https://blog.codinghorror.com/why-cant-programmers-program/
-
-
-
-
-
-## Spells
-
-### To test:
-```shell
-bazelisk test --test_output=all //src/fizzbuzz/complete:test
-```
-
-### To run: 
-```shell
-bazelisk run //src/fizzbuzz/complete:main
-```
-
-
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-## Hints
-* Check out the built-in function [range](https://docs.python.org/3/library/functions.html#func-range).
-* To check divisibility, look into the operator [modulo](https://realpython.com/python-modulo-operator/)
-* For unit tests, here's a reference on the built-in framework [unittest](https://docs.python.org/3/library/unittest.html)
-
+1. Refactor to reduce coupling
+2. Add unit tests
 
