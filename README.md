@@ -10,6 +10,7 @@ Learn how to define the iterative and quality-focused software development metho
 * [Overview](#overview)
 * [Outline](#outline)
 * [Setup](#setup)
+* [Recipes](#recipes)
 
 ---
 
@@ -184,3 +185,128 @@ There's nothing magical about this setup: it's GCC with Bazel and a couple less-
 #### Steps
 1. Clone repo
 2. Open in your favorite editor
+
+<br/>
+<br/>
+
+---
+
+## Recipes
+
+There are bunch of projects within `/src`-- exercices, demos, and code samples. Each project has a `BUILD` file, 
+and *almost* every one specifies two projects: `main` and `test`. 
+
+To run a recipe below, open a terminal from the project root. (In VSCode, use the shortcut *CTRL+`*.) Make sure you specify the project you want to run.
+
+
+Project examples:
+* Test--
+  - `//src/pi/complete:test`
+  - `//src/restful-fortune/complete:test`
+* Main--
+  - `//src/pi/complete:main`
+  - `//src/restful-fortune/complete:main`
+
+<br/>
+
+### To Build
+Command: **bazel build**
+
+#### Examples:
+
+```shell
+bazel build //src/pi/complete:main
+```
+
+```shell
+bazel build //src/money/complete:main
+```
+
+#### Output:
+
+<img src='.assets/screenshot.build-output.png'>
+
+<br/>
+<br/>
+<br/>
+
+
+### To Run
+Command: **bazel run**
+
+#### Examples:
+```shell
+bazel run //src/pi/complete:main
+```
+
+```shell
+bazel run //src/fizzbuzz/complete:main
+```
+
+#### Output:
+
+<img src='.assets/screenshot.bazel-run.png'>
+
+<br/>
+<br/>
+<br/>
+
+### To Test
+Command: **bazel test**
+
+#### Examples:
+```shell
+bazel test --test_output=all //src/pi/complete:test
+```
+
+```shell
+bazel test --test_output=all //src/fizzbuzz/complete:test
+```
+
+#### Output:
+
+<img src='.assets/screenshot.test-output.png'>
+
+<br/>
+<br/>
+<br/>
+
+
+### To Generate a Coverage Report
+This is a two step process: 
+1. Build a binary coverage data file
+2. Generate the HTML report
+
+Commands: **bazel coverage** and **genhtml**
+
+#### Examples:
+```shell
+bazel coverage -s \
+  --instrument_test_targets \
+  --experimental_cc_coverage \
+  --combined_report=lcov \
+  //src/pi/complete:test \
+&& genhtml bazel-out/_coverage/_coverage_report.dat \
+  --highlight \
+  --legend \
+  --output-directory coverage
+```
+
+```shell
+bazel coverage -s \
+  --instrument_test_targets \
+  --experimental_cc_coverage \
+  --combined_report=lcov \
+  //src/fizzbuzz/complete:test \
+&& genhtml bazel-out/_coverage/_coverage_report.dat \
+  --highlight \
+  --legend \
+  --output-directory coverage
+```
+
+<br/>
+
+#### Report:
+
+
+<img src='.assets/screenshot.coverage-report.png'>
