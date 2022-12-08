@@ -26,7 +26,7 @@ namespace
     TEST(SlightlyBetterServiceGatewayTests, GetControllerShouldParseCustomersRequest)
     {
         // Arrange
-        NiceMock<MockLogger> logger;
+        MockLogger logger;
         auto userController = UserController(logger);
         auto productController = ProductController(logger);
         auto authenticationController = AuthenticationController(logger);

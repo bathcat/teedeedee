@@ -4,7 +4,8 @@ cc_test(
   srcs = glob( ["*.cc","*.h"],exclude=["main.cc"]),
   deps = [
     "@com_google_googletest//:gtest_main",
-    "@cpp_httplib//:cpp-httplib"
+    "@cpp_httplib//:cpp-httplib",
+    "@nlohmann_json//:nlohmann-json",
   ],
 )
 

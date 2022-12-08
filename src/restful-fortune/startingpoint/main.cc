@@ -22,6 +22,8 @@ int main(const int argc, const char **argv)
 
     httplib::Client httpClient("http://numbersapi.com");
     const auto httpResponse = httpClient.Get("/random/trivia?json");
+    std::cout << std::endl<< httpResponse.value().body << std::endl;
+    return 0;
     const auto json = nlohmann::json::parse(httpResponse.value().body);
 
     std::cout << std::endl

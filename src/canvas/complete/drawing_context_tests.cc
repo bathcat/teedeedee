@@ -32,7 +32,7 @@ namespace
         EXPECT_CALL(turtle, Forward(w))
             .Times(2);
 
-        EXPECT_CALL(turtle, Forward(h))
+        EXPECT_CALL(turtle, Forward(12))
             .Times(2);
 
         DrawingContext canvas(turtle);
